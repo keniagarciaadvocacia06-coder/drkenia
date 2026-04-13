@@ -1,4 +1,4 @@
-import draKenia from "@/assets/dra-kenia-enhanced.jpg";
+import draKeniaAbout from "@/assets/dra-kenia-about.jpg";
 
 const AboutSection = () => {
   return (
