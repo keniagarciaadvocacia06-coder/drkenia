@@ -4,7 +4,7 @@ const HeroSection = () => {
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center text-center px-6 pt-20">
       <div className="max-w-4xl mx-auto">
-        <p className="text-sm tracking-[0.4em] uppercase text-muted-foreground mb-8">
+        <p className="text-sm tracking-[0.4em] uppercase text-brown-dark mb-8">
           Advocacia Especializada
         </p>
         <div className="w-12 h-[2px] bg-primary mx-auto mb-10" />
