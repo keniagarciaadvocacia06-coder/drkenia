@@ -6,59 +6,59 @@
 
 @layer base {
   :root {
-    --background: 33 52% 55%;
-    --foreground: 35 30% 85%;
+    --background: 30 30% 42%;
+    --foreground: 38 50% 90%;
 
-    --card: 25 25% 16%;
-    --card-foreground: 35 30% 85%;
+    --card: 30 25% 35%;
+    --card-foreground: 38 50% 90%;
 
-    --popover: 25 25% 16%;
-    --popover-foreground: 35 30% 85%;
+    --popover: 30 25% 35%;
+    --popover-foreground: 38 50% 90%;
 
-    --primary: 35 50% 55%;
-    --primary-foreground: 25 30% 10%;
+    --primary: 38 65% 58%;
+    --primary-foreground: 30 40% 12%;
 
-    --secondary: 25 20% 20%;
-    --secondary-foreground: 35 30% 85%;
+    --secondary: 30 25% 30%;
+    --secondary-foreground: 38 50% 90%;
 
-    --muted: 25 15% 22%;
-    --muted-foreground: 35 15% 55%;
+    --muted: 30 20% 32%;
+    --muted-foreground: 38 25% 65%;
 
-    --accent: 35 60% 65%;
-    --accent-foreground: 25 30% 10%;
+    --accent: 40 70% 65%;
+    --accent-foreground: 30 40% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 35 20% 25%;
-    --input: 35 20% 25%;
-    --ring: 35 50% 55%;
+    --border: 38 30% 45%;
+    --input: 38 30% 45%;
+    --ring: 38 65% 58%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 25 30% 12%;
-    --sidebar-foreground: 35 30% 85%;
-    --sidebar-primary: 35 50% 55%;
-    --sidebar-primary-foreground: 25 30% 10%;
-    --sidebar-accent: 25 20% 20%;
-    --sidebar-accent-foreground: 35 30% 85%;
-    --sidebar-border: 35 20% 25%;
-    --sidebar-ring: 35 50% 55%;
+    --sidebar-background: 30 30% 28%;
+    --sidebar-foreground: 38 50% 90%;
+    --sidebar-primary: 38 65% 58%;
+    --sidebar-primary-foreground: 30 40% 12%;
+    --sidebar-accent: 30 25% 30%;
+    --sidebar-accent-foreground: 38 50% 90%;
+    --sidebar-border: 38 30% 45%;
+    --sidebar-ring: 38 65% 58%;
 
     /* Custom tokens */
-    --gold: 35 50% 55%;
-    --gold-light: 35 60% 70%;
-    --gold-dark: 35 40% 40%;
-    --brown-dark: 25 30% 8%;
-    --brown-medium: 25 25% 16%;
-    --cream: 35 30% 90%;
-    --cream-muted: 35 15% 65%;
+    --gold: 38 65% 58%;
+    --gold-light: 40 70% 70%;
+    --gold-dark: 35 55% 42%;
+    --brown-dark: 30 30% 15%;
+    --brown-medium: 30 25% 35%;
+    --cream: 38 45% 88%;
+    --cream-muted: 38 20% 65%;
 
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Inter', sans-serif;
 
-    --gradient-gold: linear-gradient(135deg, hsl(35 50% 55%), hsl(35 60% 70%));
-    --shadow-gold: 0 4px 20px hsl(35 50% 55% / 0.15);
+    --gradient-gold: linear-gradient(135deg, hsl(38 65% 58%), hsl(40 70% 70%));
+    --shadow-gold: 0 4px 20px hsl(38 65% 58% / 0.25);
   }
 }
 
