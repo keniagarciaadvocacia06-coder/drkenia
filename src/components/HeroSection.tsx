@@ -1,42 +1,60 @@
 import { MessageCircle, ArrowRight } from "lucide-react";
+import draKenia from "@/assets/dra-kenia-enhanced.jpg";
 
 const HeroSection = () => {
   return (
-    <section id="inicio" className="min-h-screen flex items-center justify-center text-center px-6 pt-20">
-      <div className="max-w-4xl mx-auto">
-        <p className="text-sm tracking-[0.4em] uppercase text-brown-dark mb-8">
-          Advocacia Especializada
-        </p>
-        <div className="w-12 h-[2px] bg-primary mx-auto mb-10" />
-        <h1 className="font-heading text-5xl md:text-7xl font-light text-foreground leading-tight mb-8">
-          Justiça com <em className="italic" style={{ color: '#FFD700', textShadow: '0 0 8px rgba(255,215,0,0.6), 0 0 20px rgba(255,215,0,0.3)' }}>fé</em>,
-          <br />
-          <span style={{ color: '#FFD700', textShadow: '0 0 8px rgba(255,215,0,0.6), 0 0 20px rgba(255,215,0,0.3)' }}>acolhimento</span> e{" "}
-          <span className="underline decoration-1 underline-offset-8" style={{ color: '#FFD700', textShadow: '0 0 8px rgba(255,215,0,0.6), 0 0 20px rgba(255,215,0,0.3)' }}>propósito</span>.
-        </h1>
-        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-          +13 anos de experiência em Família e Sucessões, Previdenciário e Bancário. 
-          Atendimento humanizado em todo o Brasil.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="https://wa.me/5564999881043?text=Olá, gostaria de agendar uma consulta."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-medium rounded-sm hover:bg-gold-light transition-colors duration-300 tracking-wide text-sm"
-          >
-            <MessageCircle size={18} />
-            AGENDE SUA CONSULTA
-          </a>
-          <a
-            href="#areas"
-            className="inline-flex items-center gap-2 px-8 py-4 border border-primary text-primary font-medium rounded-sm hover:bg-primary/10 transition-colors duration-300 tracking-wide text-sm"
-          >
-            CONHEÇA NOSSOS SERVIÇOS
-            <ArrowRight size={18} />
-          </a>
+    <section id="inicio" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      {/* Dark overlay background */}
+      <div className="absolute inset-0 bg-brown-dark" />
+      
+      <div className="relative z-10 w-full max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-8">
+        {/* Left - Text Content */}
+        <div className="px-6 md:px-12 lg:px-16 py-12">
+          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-cream leading-tight mb-6">
+            Justiça com{" "}
+            <em className="italic text-gold-gradient not-italic">fé</em>,
+            <br />
+            <span className="text-gold-gradient">acolhimento</span> e{" "}
+            <span className="text-gold-gradient underline decoration-1 underline-offset-8">propósito</span>.
+          </h1>
+          <p className="text-cream-muted text-lg md:text-xl max-w-lg mb-10 leading-relaxed font-light">
+            +13 anos de experiência em Família e Sucessões, Previdenciário e Bancário.
+            Atendimento humanizado em todo o Brasil.
+          </p>
+          <div className="flex flex-col sm:flex-row items-start gap-4">
+            <a
+              href="https://wa.me/5564999881043?text=Olá, gostaria de agendar uma consulta."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-medium rounded-sm hover:bg-gold-light transition-colors duration-300 tracking-wide text-sm"
+            >
+              <MessageCircle size={18} />
+              FALE COM UM ESPECIALISTA
+              <ArrowRight size={16} />
+            </a>
+          </div>
+        </div>
+
+        {/* Right - Photo */}
+        <div className="relative h-full flex items-end justify-center md:justify-end">
+          <div className="relative">
+            {/* Gold accent line */}
+            <div className="absolute -left-4 top-8 bottom-8 w-[2px] bg-gradient-to-b from-transparent via-primary to-transparent hidden md:block" />
+            <img
+              src={draKenia}
+              alt="Dra. Kênia Garcia - Advogada"
+              className="w-full max-w-md lg:max-w-lg xl:max-w-xl object-cover object-top rounded-sm"
+              style={{ maxHeight: '85vh' }}
+              loading="eager"
+            />
+            {/* Gold glow behind photo */}
+            <div className="absolute -inset-4 bg-primary/5 rounded-sm -z-10 blur-2xl" />
+          </div>
         </div>
       </div>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };
