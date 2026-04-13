@@ -9,7 +9,7 @@ const AboutSection = () => {
           <img
             src={draKeniaAbout}
             alt="Dra. Kênia Garcia - Advogada"
-            className="w-full max-w-md mx-auto rounded-sm object-cover aspect-[3/4]"
+            className="w-full max-w-lg mx-auto rounded-sm object-cover aspect-[3/4]"
             loading="lazy"
           />
           <p className="text-center mt-6 font-heading text-2xl text-primary">Dra. Kênia Garcia</p>
