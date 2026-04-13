@@ -14,7 +14,7 @@ const HeroSection = () => {
             loading="eager"
           />
           {/* Gradient overlay from left to blend with dark bg */}
-          <div className="absolute inset-0 bg-gradient-to-r from-brown-dark via-brown-dark/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brown-dark via-brown-dark/40 to-transparent" />
           {/* Bottom gradient */}
           <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-brown-dark to-transparent" />
         </div>
