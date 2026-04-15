@@ -3,7 +3,7 @@ import draKeniaAbout from "@/assets/dra-kenia-about.jpg";
 const AboutSection = () => {
   return (
     <section id="sobre" className="py-12 md:py-16 lg:py-24 px-6">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
         <div className="relative">
           <div className="absolute -inset-2 border border-primary/20 rounded-sm" />
           <img
