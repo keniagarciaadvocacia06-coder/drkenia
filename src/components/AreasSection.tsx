@@ -94,7 +94,7 @@ const AreasSection = () => {
                 href={`https://wa.me/5564999881043?text=${encodeURIComponent(area.whatsappText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground text-sm font-medium rounded-sm hover:bg-gold-light transition-colors duration-300 w-full justify-center"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#8b6914] to-[#e8d090] text-primary-foreground text-sm font-medium rounded-sm hover:from-[#7a5c10] hover:to-[#d4bc7c] transition-all duration-300 w-full justify-center"
               >
                 {area.ctaLabel}
               </a>
