@@ -30,7 +30,7 @@ const ContactSection = () => {
           >
             <Mail className="w-8 h-8 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" strokeWidth={1.5} />
             <h3 className="font-heading text-xl md:text-2xl text-foreground mb-2">E-mail</h3>
-            <p className="text-muted-foreground text-base">keniagarcia.advocacia@gmail.com</p>
+            <p className="text-muted-foreground text-sm break-all">keniagarcia.advocacia@gmail.com</p>
           </a>
 
           <div className="bg-card border border-border rounded-sm p-8">
