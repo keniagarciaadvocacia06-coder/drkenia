@@ -19,7 +19,7 @@ const AboutSection = () => {
             Justiça com fé, acolhimento e propósito
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-6 text-base md:text-lg">
-            Com <strong className="text-foreground">13 anos de experiência</strong> no mercado jurídico, 
+            Com <strong className="text-foreground">Com <strong className="text-foreground">15 anos de experiência</strong> no mercado jurídico,</strong> no mercado jurídico, 
             a Dra. Kênia Garcia construiu sua carreira sobre um pilar fundamental: a crença de que cada
             pessoa merece ser tratada com dignidade, respeito e empatia.
           </p>
