@@ -3,9 +3,9 @@ import draKenia from "@/assets/dra-kenia-enhanced.jpg";
 
 const HeroSection = () => {
   return (
-    <section id="inicio" className="relative overflow-hidden bg-brown-dark pt-36 pb-16 lg:min-h-screen">
+    <section id="inicio" className="relative overflow-hidden bg-brown-dark pt-36 pb-16 xl:min-h-screen">
       {/* Desktop background image - right side */}
-      <div className="absolute inset-0 hidden lg:block">
+      <div className="absolute inset-0 hidden xl:block">
         <div className="absolute right-0 top-[136px] bottom-0 w-[60%] overflow-hidden bg-brown-dark">
           <img
             src={draKenia}
@@ -20,19 +20,19 @@ const HeroSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         {/* Mobile & tablet hero image */}
-        <div className="-mx-6 md:-mx-12 mb-10 overflow-hidden bg-brown-dark lg:hidden">
-          <div className="relative h-[520px] md:h-[640px]">
+        <div className="-mx-6 md:-mx-12 lg:-mx-16 mb-10 overflow-hidden bg-brown-dark xl:hidden">
+          <div className="relative h-[520px] md:h-[640px] lg:h-[720px]">
             <img
               src={draKenia}
               alt="Dra. Kênia Garcia - Advogada"
-              className="w-full h-full object-cover object-[center_10%] brightness-110 md:object-[center_15%]"
+              className="w-full h-full object-cover object-[center_10%] brightness-110 md:object-[center_15%] lg:object-[center_12%]"
               loading="eager"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brown-dark/65 via-transparent to-transparent" />
           </div>
         </div>
 
-        <div className="flex items-start lg:min-h-screen lg:items-center">
+        <div className="flex items-start xl:min-h-screen xl:items-center">
           <div className="max-w-xl">
             <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-cream leading-tight mb-6">
               Justiça com{" "}
