@@ -49,7 +49,7 @@ const HeroSection = () => {
               href="https://wa.me/5564999881043?text=Olá, gostaria de agendar uma consulta."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-medium rounded-sm hover:bg-gold-light transition-colors duration-300 tracking-wide text-sm"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#8b6914] to-[#e8d090] text-primary-foreground font-medium rounded-sm hover:from-[#7a5c10] hover:to-[#d4bc7c] transition-all duration-300 tracking-wide text-sm"
             >
               <MessageCircle size={18} />
               FALE COM UM ESPECIALISTA

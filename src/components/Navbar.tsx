@@ -70,7 +70,7 @@ const Navbar = () => {
             href="https://wa.me/5564999881043?text=Olá, gostaria de agendar uma consulta."
             target="_blank"
             rel="noopener noreferrer"
-            className="block px-6 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-sm text-center"
+            className="block px-6 py-2.5 bg-gradient-to-r from-[#8b6914] to-[#e8d090] text-primary-foreground text-sm font-medium rounded-sm text-center hover:from-[#7a5c10] hover:to-[#d4bc7c] transition-all duration-300"
           >
             FALE CONOSCO
           </a>

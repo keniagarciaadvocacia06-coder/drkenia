@@ -100,7 +100,7 @@ const ContactSection = () => {
               <button
                 type="submit"
                 disabled={sending}
-                className="w-full py-4 bg-foreground text-background font-bold uppercase tracking-widest rounded-sm hover:opacity-90 transition-opacity text-base"
+                className="w-full py-4 bg-gradient-to-r from-[#8b6914] to-[#e8d090] text-primary-foreground font-bold uppercase tracking-widest rounded-sm hover:from-[#7a5c10] hover:to-[#d4bc7c] transition-all text-base"
               >
                 Solicitar Atendimento
               </button>
