@@ -6,7 +6,7 @@ const HeroSection = () => {
     <section id="inicio" className="relative min-h-screen pt-36 overflow-hidden bg-brown-dark">
       {/* Background image - right side */}
       <div className="absolute inset-0">
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%]">
+        <div className="absolute right-0 top-[136px] bottom-0 w-full md:w-[60%]">
           <img
             src={draKenia}
             alt="Dra. Kênia Garcia - Advogada"
