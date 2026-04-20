@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MessageCircle, Mail, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useToast } from "@/hooks/use-toast";
-import { buildWhatsAppRelayUrl, openWhatsApp } from "@/lib/whatsapp";
+import { buildWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -51,7 +51,6 @@ const ContactSection = () => {
         </div>
 
         <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
-          {/* Formulário */}
           <div className="order-1 rounded-sm bg-[#fbe074] p-8 md:p-10 lg:order-2">
             <h3 className="mb-2 text-center font-heading text-2xl text-primary-foreground md:text-3xl">
               {t("contact.form_title")}
@@ -110,10 +109,9 @@ const ContactSection = () => {
             </form>
           </div>
 
-          {/* Cards de contato */}
           <div className="order-2 space-y-4 lg:order-1">
             <a
-              href={buildWhatsAppRelayUrl(waMessage)}
+              href={buildWhatsAppUrl(waMessage)}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex w-full cursor-pointer items-center gap-4 rounded-sm border border-border bg-card p-6 text-left transition-colors hover:border-primary/40"

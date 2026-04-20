@@ -3,7 +3,7 @@ import { Menu, X, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import logoKg from "@/assets/logo-kg.png";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { buildWhatsAppRelayUrl, openWhatsApp } from "@/lib/whatsapp";
+import { buildWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,6 @@ const Navbar = () => {
           <img src={logoKg} alt="KG — Kênia Garcia Advocacia" className="h-40 w-auto" />
         </a>
 
-        {/* Desktop nav */}
         <div className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
             <a
@@ -43,7 +42,7 @@ const Navbar = () => {
         <div className="hidden items-center gap-4 lg:flex">
           <LanguageSwitcher />
           <a
-            href={buildWhatsAppRelayUrl(waMessage)}
+            href={buildWhatsAppUrl(waMessage)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex cursor-pointer rounded-sm bg-gradient-to-r from-[#8b6914] to-[#e8d090] px-6 py-2.5 text-sm font-medium tracking-wide text-primary-foreground transition-all duration-300 hover:from-[#7a5c10] hover:to-[#d4bc7c]"
@@ -52,7 +51,6 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile: apenas o toggle */}
         <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -64,10 +62,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {isOpen && (
         <div className="space-y-4 border-t border-border bg-background px-6 py-6 lg:hidden">
-          {/* Language section at top */}
           <div className="border-b border-border pb-4">
             <div className="mb-3 flex items-center gap-2 text-muted-foreground">
               <Globe size={16} />
