@@ -11,18 +11,20 @@ export const buildWhatsAppRelayUrl = (message?: string) => {
   return `/open-whatsapp${params.toString() ? `?${params.toString()}` : ""}`;
 };
 
-/**
- * Opens an internal relay page first, then that page redirects to WhatsApp.
- * If popups are blocked, it falls back to navigating the current page.
- */
 export const openWhatsApp = (message?: string) => {
-  const relayUrl = buildWhatsAppRelayUrl(message);
-  const newWindow = window.open(relayUrl, "_blank", "noopener,noreferrer");
+  const targetUrl = buildWhatsAppUrl(message);
+  const newWindow = window.open(targetUrl, "_blank", "noopener,noreferrer");
 
   if (newWindow) {
     newWindow.opener = null;
     return;
   }
 
-  window.location.href = relayUrl;
+  const link = document.createElement("a");
+  link.href = targetUrl;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 };

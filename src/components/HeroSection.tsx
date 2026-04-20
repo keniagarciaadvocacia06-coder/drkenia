@@ -2,7 +2,7 @@ import { MessageCircle, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import draKenia from "@/assets/dra-kenia-enhanced.jpg";
 
-import { buildWhatsAppRelayUrl } from "@/lib/whatsapp";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -41,17 +41,15 @@ const HeroSection = () => {
         <div className="flex items-start xl:min-h-screen xl:items-center">
           <div className="max-w-xl">
             <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-cream leading-tight mb-6">
-              {t("hero.title_1")}{" "}
-              <em className="italic text-gold-gradient not-italic">{t("hero.title_faith")}</em>,
+              {t("hero.title_1")} <em className="italic text-gold-gradient not-italic">{t("hero.title_faith")}</em>,
               <br />
-              <span className="text-gold-gradient">{t("hero.title_welcoming")}</span> {t("hero.title_and")}{" "}
-              <span className="text-gold-gradient underline decoration-1 underline-offset-8">{t("hero.title_purpose")}</span>.
+              <span className="text-gold-gradient">{t("hero.title_welcoming")}</span> {t("hero.title_and")} <span className="text-gold-gradient underline decoration-1 underline-offset-8">{t("hero.title_purpose")}</span>.
             </h1>
             <p className="text-cream-muted text-lg md:text-xl max-w-lg mb-10 leading-relaxed font-light">
               {t("hero.subtitle")}
             </p>
             <a
-              href={buildWhatsAppRelayUrl(waMessage)}
+              href={buildWhatsAppUrl(waMessage)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex cursor-pointer items-center gap-2 rounded-sm bg-gradient-to-r from-[#8b6914] to-[#e8d090] px-8 py-4 text-sm font-medium tracking-wide text-primary-foreground transition-all duration-300 hover:from-[#7a5c10] hover:to-[#d4bc7c]"
@@ -64,7 +62,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Bottom fade to next section */}
       <div className="absolute bottom-0 left-0 right-0 z-10 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );

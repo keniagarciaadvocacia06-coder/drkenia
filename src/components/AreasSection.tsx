@@ -1,6 +1,6 @@
 import { Users, Landmark, FileCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { buildWhatsAppRelayUrl } from "@/lib/whatsapp";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const areaKeys = [
   { key: "family", icon: Users },
@@ -55,7 +55,7 @@ const AreasSection = () => {
                 <p className="mb-2 text-sm font-medium uppercase tracking-wide text-muted-foreground">{t("areas.investment_label")}</p>
                 <p className="mb-4 text-base text-muted-foreground">{t(`areas.${area.key}.investment`)}</p>
                 <a
-                  href={buildWhatsAppRelayUrl(waText)}
+                  href={buildWhatsAppUrl(waText)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex w-full cursor-pointer justify-center gap-2 rounded-sm bg-gradient-to-r from-[#8b6914] to-[#e8d090] px-6 py-3 text-sm font-medium text-primary-foreground transition-all duration-300 hover:from-[#7a5c10] hover:to-[#d4bc7c]"
