@@ -6,10 +6,24 @@ export const buildWhatsAppUrl = (message?: string) => {
 };
 
 /**
- * Opens WhatsApp from a direct user click without relying on anchor navigation,
- * avoiding iframe navigation issues in the Lovable preview.
+ * Opens WhatsApp in a separate tab without letting the preview iframe navigate to wa.me.
  */
 export const openWhatsApp = (message?: string) => {
   const url = buildWhatsAppUrl(message);
-  window.open(url, "_blank", "noopener,noreferrer");
+
+  const popup = window.open("", "_blank", "noopener,noreferrer");
+  if (popup) {
+    popup.opener = null;
+    popup.location.replace(url);
+    return;
+  }
+
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.target = "_blank";
+  anchor.rel = "noopener noreferrer";
+  anchor.style.display = "none";
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
 };
