@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import logoKg from "@/assets/logo-kg.png";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -51,25 +51,39 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden text-foreground"
-          aria-label="Menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile: language selector always visible + toggle */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <LanguageSwitcher />
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-cream p-1"
+            aria-label="Menu"
+          >
+            {isOpen ? <X size={26} /> : <Menu size={26} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
       {isOpen && (
         <div className="lg:hidden bg-background border-t border-border px-6 py-6 space-y-4">
+          {/* Language section at top */}
+          <div className="pb-4 border-b border-border">
+            <div className="flex items-center gap-2 mb-3 text-muted-foreground">
+              <Globe size={16} />
+              <span className="text-xs uppercase tracking-widest font-semibold">
+                {t("nav.language", { defaultValue: "Idioma / Language" })}
+              </span>
+            </div>
+            <LanguageSwitcher />
+          </div>
+
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="block text-base font-medium text-foreground hover:text-primary transition-colors"
             >
               {link.label}
             </a>
@@ -78,15 +92,10 @@ const Navbar = () => {
             href={waHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="block px-6 py-2.5 bg-gradient-to-r from-[#8b6914] to-[#e8d090] text-primary-foreground text-sm font-medium rounded-sm text-center hover:from-[#7a5c10] hover:to-[#d4bc7c] transition-all duration-300"
+            className="block px-6 py-3 bg-gradient-to-r from-[#8b6914] to-[#e8d090] text-primary-foreground text-sm font-medium rounded-sm text-center hover:from-[#7a5c10] hover:to-[#d4bc7c] transition-all duration-300"
           >
             {t("nav.cta")}
           </a>
-          <div className="pt-2 border-t border-border">
-            <div className="bg-brown-dark rounded-sm py-2">
-              <LanguageSwitcher variant="mobile" />
-            </div>
-          </div>
         </div>
       )}
     </nav>
