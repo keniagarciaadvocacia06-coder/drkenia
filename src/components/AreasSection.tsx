@@ -1,6 +1,6 @@
 import { Users, Landmark, FileCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const areaKeys = [
   { key: "family", icon: Users },
@@ -8,7 +8,10 @@ const areaKeys = [
   { key: "social_security", icon: FileCheck },
 ] as const;
 
-interface Service { name: string; desc: string; }
+interface Service {
+  name: string;
+  desc: string;
+}
 
 const AreasSection = () => {
   const { t } = useTranslation();
@@ -30,6 +33,7 @@ const AreasSection = () => {
           const Icon = area.icon;
           const services = t(`areas.${area.key}.services`, { returnObjects: true }) as Service[];
           const waText = t(`areas.${area.key}.wa`);
+
           return (
             <div
               key={area.key}
@@ -54,14 +58,13 @@ const AreasSection = () => {
               <div className="border-t border-border bg-secondary p-8">
                 <p className="mb-2 text-sm font-medium uppercase tracking-wide text-muted-foreground">{t("areas.investment_label")}</p>
                 <p className="mb-4 text-base text-muted-foreground">{t(`areas.${area.key}.investment`)}</p>
-                <a
-                  href={buildWhatsAppUrl(waText)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={() => openWhatsApp(waText)}
                   className="inline-flex w-full cursor-pointer justify-center gap-2 rounded-sm bg-gradient-to-r from-[#8b6914] to-[#e8d090] px-6 py-3 text-sm font-medium text-primary-foreground transition-all duration-300 hover:from-[#7a5c10] hover:to-[#d4bc7c]"
                 >
                   {t(`areas.${area.key}.cta`)}
-                </a>
+                </button>
               </div>
             </div>
           );
