@@ -5,8 +5,30 @@ export const buildWhatsAppUrl = (message?: string) => {
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 };
 
+export const buildWhatsAppNativeUrl = (message?: string) => {
+  const base = `whatsapp://send?phone=${WHATSAPP_NUMBER}`;
+  return message ? `${base}&text=${encodeURIComponent(message)}` : base;
+};
+
+const isEmbeddedPreview = () => {
+  try {
+    return window.self !== window.top;
+  } catch {
+    return true;
+  }
+};
+
+const shouldUseNativeWhatsApp = () => {
+  const userAgent = navigator.userAgent;
+  const isMobileOrTablet = /Android|iPhone|iPad|iPod|Mobile|Tablet/i.test(userAgent);
+  const isTouchDevice = navigator.maxTouchPoints > 0;
+  const isCompactViewport = window.matchMedia("(max-width: 1024px)").matches;
+
+  return isEmbeddedPreview() && (isMobileOrTablet || isTouchDevice || isCompactViewport);
+};
+
 const openInNewTab = (url: string) => {
-  const popup = window.open(url, "_blank");
+  const popup = window.open(url, "_blank", "noopener,noreferrer");
 
   if (popup) {
     popup.opener = null;
@@ -26,10 +48,16 @@ const openInNewTab = (url: string) => {
 };
 
 export const openWhatsApp = (message?: string) => {
-  const targetUrl = buildWhatsAppUrl(message);
-  const opened = openInNewTab(targetUrl);
+  const webUrl = buildWhatsAppUrl(message);
 
-  if (!opened && window.top === window.self) {
-    window.location.assign(targetUrl);
+  if (shouldUseNativeWhatsApp()) {
+    window.location.assign(buildWhatsAppNativeUrl(message));
+    return;
+  }
+
+  const opened = openInNewTab(webUrl);
+
+  if (!opened && !isEmbeddedPreview()) {
+    window.location.assign(webUrl);
   }
 };
