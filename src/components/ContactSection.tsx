@@ -117,7 +117,11 @@ const ContactSection = () => {
               href={waHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 bg-card border border-border rounded-sm p-6 hover:border-primary/40 transition-colors group"
+              onClick={(e) => {
+                e.preventDefault();
+                openWhatsApp(waMessage);
+              }}
+              className="flex items-center gap-4 bg-card border border-border rounded-sm p-6 hover:border-primary/40 transition-colors group cursor-pointer"
             >
               <MessageCircle className="w-8 h-8 text-primary shrink-0 group-hover:scale-110 transition-transform" strokeWidth={1.5} />
               <div>
