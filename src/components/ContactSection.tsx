@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MessageCircle, Mail, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useToast } from "@/hooks/use-toast";
-import { openWhatsApp } from "@/lib/whatsapp";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -24,7 +24,7 @@ const ContactSection = () => {
     setSending(true);
 
     const text = `${t("contact.wa_intro")} ${formData.name}.\n${t("contact.wa_email")}: ${formData.email}\n${t("contact.wa_phone")}: ${formData.phone}\n${t("contact.wa_message")}: ${formData.message}`;
-    openWhatsApp(text);
+    window.open(buildWhatsAppUrl(text), "_blank", "noopener,noreferrer");
 
     toast({
       title: t("contact.toast_title"),
