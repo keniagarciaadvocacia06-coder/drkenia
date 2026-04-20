@@ -2,9 +2,12 @@ import { MessageCircle, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import draKenia from "@/assets/dra-kenia-enhanced.jpg";
 
+import { buildWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
+
 const HeroSection = () => {
   const { t } = useTranslation();
-  const waHref = `https://wa.me/5564999881043?text=${encodeURIComponent(t("hero.wa_message"))}`;
+  const waMessage = t("hero.wa_message");
+  const waHref = buildWhatsAppUrl(waMessage);
 
   return (
     <section id="inicio" className="relative overflow-hidden bg-brown-dark pt-36 pb-16 xl:min-h-screen">
@@ -52,7 +55,11 @@ const HeroSection = () => {
               href={waHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#8b6914] to-[#e8d090] text-primary-foreground font-medium rounded-sm hover:from-[#7a5c10] hover:to-[#d4bc7c] transition-all duration-300 tracking-wide text-sm"
+              onClick={(e) => {
+                e.preventDefault();
+                openWhatsApp(waMessage);
+              }}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#8b6914] to-[#e8d090] text-primary-foreground font-medium rounded-sm hover:from-[#7a5c10] hover:to-[#d4bc7c] transition-all duration-300 tracking-wide text-sm cursor-pointer"
             >
               <MessageCircle size={18} />
               {t("hero.cta")}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MessageCircle, Mail, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useToast } from "@/hooks/use-toast";
+import { buildWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -22,10 +23,8 @@ const ContactSection = () => {
     e.preventDefault();
     setSending(true);
 
-    const text = encodeURIComponent(
-      `${t("contact.wa_intro")} ${formData.name}.\n${t("contact.wa_email")}: ${formData.email}\n${t("contact.wa_phone")}: ${formData.phone}\n${t("contact.wa_message")}: ${formData.message}`
-    );
-    window.open(`https://wa.me/5564999881043?text=${text}`, "_blank");
+    const text = `${t("contact.wa_intro")} ${formData.name}.\n${t("contact.wa_email")}: ${formData.email}\n${t("contact.wa_phone")}: ${formData.phone}\n${t("contact.wa_message")}: ${formData.message}`;
+    openWhatsApp(text);
 
     toast({
       title: t("contact.toast_title"),
@@ -36,7 +35,8 @@ const ContactSection = () => {
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
-  const waHref = `https://wa.me/5564999881043?text=${encodeURIComponent(t("hero.wa_message"))}`;
+  const waMessage = t("hero.wa_message");
+  const waHref = buildWhatsAppUrl(waMessage);
 
   return (
     <section id="contato" className="py-12 md:py-16 lg:py-24 px-6 bg-secondary">
@@ -117,7 +117,11 @@ const ContactSection = () => {
               href={waHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 bg-card border border-border rounded-sm p-6 hover:border-primary/40 transition-colors group"
+              onClick={(e) => {
+                e.preventDefault();
+                openWhatsApp(waMessage);
+              }}
+              className="flex items-center gap-4 bg-card border border-border rounded-sm p-6 hover:border-primary/40 transition-colors group cursor-pointer"
             >
               <MessageCircle className="w-8 h-8 text-primary shrink-0 group-hover:scale-110 transition-transform" strokeWidth={1.5} />
               <div>
