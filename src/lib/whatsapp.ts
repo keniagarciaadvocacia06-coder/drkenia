@@ -6,10 +6,20 @@ export const buildWhatsAppUrl = (message?: string) => {
 };
 
 /**
- * Navigates directly to WhatsApp without opening a popup,
- * avoiding browser popup blockers in the preview.
+ * Navigates WhatsApp in the top window to escape the Lovable preview iframe,
+ * avoiding ERR_BLOCKED_BY_RESPONSE from loading WhatsApp inside the frame.
  */
 export const openWhatsApp = (message?: string) => {
   const url = buildWhatsAppUrl(message);
-  window.location.assign(url);
+
+  try {
+    if (window.top) {
+      window.top.location.href = url;
+      return;
+    }
+  } catch {
+    // fallback below
+  }
+
+  window.location.href = url;
 };
