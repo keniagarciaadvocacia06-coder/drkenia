@@ -6,10 +6,10 @@ export const buildWhatsAppUrl = (message?: string) => {
 };
 
 /**
- * Navigates directly to WhatsApp without opening a popup,
- * avoiding browser popup blockers in the preview.
+ * Opens WhatsApp from a direct user click without relying on anchor navigation,
+ * avoiding iframe navigation issues in the Lovable preview.
  */
 export const openWhatsApp = (message?: string) => {
   const url = buildWhatsAppUrl(message);
-  window.location.assign(url);
+  window.open(url, "_blank", "noopener,noreferrer");
 };

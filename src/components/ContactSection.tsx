@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MessageCircle, Mail, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useToast } from "@/hooks/use-toast";
-import { buildWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -36,7 +36,6 @@ const ContactSection = () => {
   };
 
   const waMessage = t("hero.wa_message");
-  const waHref = buildWhatsAppUrl(waMessage);
 
   return (
     <section id="contato" className="py-12 md:py-16 lg:py-24 px-6 bg-secondary">

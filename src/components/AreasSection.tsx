@@ -1,6 +1,6 @@
 import { Users, Landmark, FileCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { buildWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const areaKeys = [
   { key: "family", icon: Users },

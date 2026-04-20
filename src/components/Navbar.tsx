@@ -3,7 +3,7 @@ import { Menu, X, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import logoKg from "@/assets/logo-kg.png";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { buildWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,6 @@ const Navbar = () => {
   ];
 
   const waMessage = t("hero.wa_message");
-  const waHref = buildWhatsAppUrl(waMessage);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#d4b896] to-[#66503d] backdrop-blur-md border-b border-border/30">
@@ -43,18 +42,13 @@ const Navbar = () => {
 
         <div className="hidden lg:flex items-center gap-4">
           <LanguageSwitcher />
-          <a
-            href={waHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => {
-              e.preventDefault();
-              openWhatsApp(waMessage);
-            }}
+          <button
+            type="button"
+            onClick={() => openWhatsApp(waMessage)}
             className="inline-flex px-6 py-2.5 bg-gradient-to-r from-[#8b6914] to-[#e8d090] text-primary-foreground text-sm font-medium rounded-sm hover:from-[#7a5c10] hover:to-[#d4bc7c] transition-all duration-300 tracking-wide cursor-pointer"
           >
             {t("nav.cta")}
-          </a>
+          </button>
         </div>
 
         {/* Mobile: apenas o toggle */}
@@ -93,19 +87,16 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <a
-            href={waHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => {
-              e.preventDefault();
+          <button
+            type="button"
+            onClick={() => {
               setIsOpen(false);
               openWhatsApp(waMessage);
             }}
-            className="block px-6 py-3 bg-gradient-to-r from-[#8b6914] to-[#e8d090] text-primary-foreground text-sm font-medium rounded-sm text-center hover:from-[#7a5c10] hover:to-[#d4bc7c] transition-all duration-300 cursor-pointer"
+            className="block w-full px-6 py-3 bg-gradient-to-r from-[#8b6914] to-[#e8d090] text-primary-foreground text-sm font-medium rounded-sm text-center hover:from-[#7a5c10] hover:to-[#d4bc7c] transition-all duration-300 cursor-pointer"
           >
             {t("nav.cta")}
-          </a>
+          </button>
         </div>
       )}
     </nav>

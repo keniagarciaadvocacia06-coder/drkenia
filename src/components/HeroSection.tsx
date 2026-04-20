@@ -2,12 +2,11 @@ import { MessageCircle, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import draKenia from "@/assets/dra-kenia-enhanced.jpg";
 
-import { buildWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const HeroSection = () => {
   const { t } = useTranslation();
   const waMessage = t("hero.wa_message");
-  const waHref = buildWhatsAppUrl(waMessage);
 
   return (
     <section id="inicio" className="relative overflow-hidden bg-brown-dark pt-36 pb-16 xl:min-h-screen">

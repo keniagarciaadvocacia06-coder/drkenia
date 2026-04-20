@@ -1,11 +1,10 @@
 import { MessageCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { buildWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const WhatsAppButton = () => {
   const { t } = useTranslation();
   const message = t("hero.wa_message");
-  const href = buildWhatsAppUrl(message);
   return (
     <button
       type="button"
