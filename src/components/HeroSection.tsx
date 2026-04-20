@@ -2,7 +2,7 @@ import { MessageCircle, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import draKenia from "@/assets/dra-kenia-enhanced.jpg";
 
-import { openWhatsApp } from "@/lib/whatsapp";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const HeroSection = () => {
   const { t } = useTranslation();
