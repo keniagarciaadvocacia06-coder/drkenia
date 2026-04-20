@@ -5,23 +5,31 @@ export const buildWhatsAppUrl = (message?: string) => {
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 };
 
+const openInNewTab = (url: string) => {
+  const popup = window.open(url, "_blank");
+
+  if (popup) {
+    popup.opener = null;
+    return true;
+  }
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.style.display = "none";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  return false;
+};
+
 export const openWhatsApp = (message?: string) => {
   const targetUrl = buildWhatsAppUrl(message);
-  const newWindow = window.open(targetUrl, "_blank", "noopener,noreferrer");
+  const opened = openInNewTab(targetUrl);
 
-  if (newWindow) {
-    newWindow.opener = null;
-    return;
+  if (!opened && window.top === window.self) {
+    window.location.assign(targetUrl);
   }
-
-  try {
-    if (window.top && window.top !== window.self) {
-      window.top.location.href = targetUrl;
-      return;
-    }
-  } catch {
-    // Ignore cross-frame access issues and fall back below.
-  }
-
-  window.location.href = targetUrl;
 };
