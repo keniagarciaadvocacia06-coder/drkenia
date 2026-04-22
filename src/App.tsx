@@ -3,17 +3,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
-import Artigos from "./pages/Artigos.tsx";
-import Emancipacao from "./pages/artigos/Emancipacao.tsx";
-import GuardaCompartilhada from "./pages/artigos/GuardaCompartilhada.tsx";
-import ComunhaoParcialBens from "./pages/artigos/ComunhaoParcialBens.tsx";
-import PensaoSocioafetiva from "./pages/artigos/PensaoSocioafetiva.tsx";
-import DireitosGenitor from "./pages/artigos/DireitosGenitor.tsx";
-import DanosMorais from "./pages/artigos/DanosMorais.tsx";
-import UniaoEstavel from "./pages/artigos/UniaoEstavel.tsx";
-import Concubinato from "./pages/artigos/Concubinato.tsx";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
+import Artigos from "./pages/Artigos";
+import Emancipacao from "./pages/artigos/Emancipacao";
+import GuardaCompartilhada from "./pages/artigos/GuardaCompartilhada";
+import ComunhaoParcialBens from "./pages/artigos/ComunhaoParcialBens";
+import PensaoSocioafetiva from "./pages/artigos/PensaoSocioafetiva";
+import DireitosGenitor from "./pages/artigos/DireitosGenitor";
+import DanosMorais from "./pages/artigos/DanosMorais";
+import UniaoEstavel from "./pages/artigos/UniaoEstavel";
+import Concubinato from "./pages/artigos/Concubinato";
 
 const queryClient = new QueryClient();
 
