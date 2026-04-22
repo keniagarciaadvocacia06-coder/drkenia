@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import logoKg from "@/assets/logo-kg.png";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { useEffect } from "react";
 
 const artigos = [
@@ -52,12 +53,7 @@ const Artigos = () => {
         </div>
       </main>
 
-      <footer className="py-8 px-6 border-t border-border">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src={logoKg} alt="KG — Kênia Garcia Advocacia" className="h-20 w-auto" />
-          <p className="text-muted-foreground text-xs">© {new Date().getFullYear()} Todos os direitos reservados.</p>
-        </div>
-      </footer>
+      <Footer />
       <WhatsAppButton />
     </div>
   );
