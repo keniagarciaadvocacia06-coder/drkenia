@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import logoKg from "@/assets/logo-kg.png";
 import WhatsAppButton from "./WhatsAppButton";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import { buildWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
 
 interface ArticleLayoutProps {
@@ -57,14 +58,7 @@ const ArticleLayout = ({ title, description, children }: ArticleLayoutProps) => 
       </main>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-border">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src={logoKg} alt="KG — Kênia Garcia Advocacia" className="h-20 w-auto" />
-          <p className="text-muted-foreground text-xs">
-            © {new Date().getFullYear()} Todos os direitos reservados.
-          </p>
-        </div>
-      </footer>
+      <Footer />
       <WhatsAppButton />
     </div>
   );
